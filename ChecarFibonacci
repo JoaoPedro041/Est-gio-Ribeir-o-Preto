@@ -1,0 +1,39 @@
+//Questão 2 do estágio
+
+import java.util.Scanner;
+
+public class ChecarFibonacci {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Digite um numero para verificar se pertence a sequência de Fibonacci: ");
+        int numeroParaVerificar = scanner.nextInt();
+        
+        int anterior = 0;
+        int atual = 1;
+        
+        boolean encontrado = false;
+        
+        if (numeroParaVerificar == 0 || numeroParaVerificar == 1) {
+            encontrado = true;
+        }
+        
+        while (atual < numeroParaVerificar) {
+            int proximo = anterior + atual;
+            anterior = atual;
+            atual = proximo;
+            if (proximo == numeroParaVerificar) {
+                encontrado = true;
+                break;
+            }
+        }
+        
+        if (encontrado) {
+            System.out.println("O numero " + numeroParaVerificar + " pertence a sequência de Fibonacci.");
+        } else {
+            System.out.println("O numero " + numeroParaVerificar + " não pertence a sequência de Fibonacci.");
+        }
+        
+        scanner.close();
+    }
+}
